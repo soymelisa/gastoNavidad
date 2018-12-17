@@ -41,12 +41,35 @@ agregarGasto = gasto => {
   // agregar al gasto, el objeto del state
   gastos[`gasto${Date.now() }`] = gasto; 
 
+  // restar al presupuesto
+  this.restarPresupuesto(gasto.cantidadGasto);  
+
   // ponerlo en el state 
   this.setState({
     gastos
   })
 
 }
+
+// Restamos de presupuesto cuando se agrega un gasto a la lista
+restarPresupuesto = cantidad => {
+  // leer el gasto y convertirla porque viene como string 
+  let restar = Number(cantidad); 
+  // luego tomamos una copia del state actual //#endregion
+  let restante = this.state.restante; 
+  // lo restamos
+  restante -= restar; 
+  
+  restante = String(restante);
+
+  // agregamos el nuevo state 
+  this.setState({
+    restante
+  })
+   
+
+}
+
 
 
   render() {

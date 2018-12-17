@@ -1,13 +1,23 @@
 import React, {Component} from 'react'; 
+import {revisarPresupuesto} from '../helper'; 
+import PropTypes from 'prop-types';
 
 class Restante extends Component {
     render() {
+        const presupuesto = this.props.presupuesto;
+        const restante = this.props.restante; 
+
         return(
-            <div className="alert alert-success">
-            <h6>Restante: $</h6>{this.props.restante}
+            <div className={revisarPresupuesto(presupuesto,restante)}>
+            Restante: $ {this.props.restante}
             </div>
         )
     }
-
 }
+
+Restante.propTypes = {
+    presupuesto: PropTypes.string.isRequired,
+    restante: PropTypes.string.isRequired
+}
+
 export default Restante;

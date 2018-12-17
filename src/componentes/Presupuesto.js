@@ -1,13 +1,17 @@
-import React, {Component} from 'react'; 
+import React, {Component} from 'react';
+import PropTypes from 'prop-types'; 
 
 class Presupuesto extends Component {
     render() {
         return(
             <div className="alert alert-primary">
-            <h6>Presupuesto: $</h6>{this.props.presupuesto}
+                Presupuesto: ${this.props.presupuesto}
             </div>
         )
     }
+}
 
+Presupuesto.propTypes = {
+    presupuesto: PropTypes.string.isRequired
 }
 export default Presupuesto;
