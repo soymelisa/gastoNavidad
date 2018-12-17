@@ -3,6 +3,7 @@ import '../css/App.css';
 import Header from './Header'; 
 import Formulario from './Formulario'; 
 import Listado from './Listado'; 
+import ControlPresupuesto from './ControlPresupuesto'; 
 import {validarPresupuesto} from '../helper';
 
 class App extends Component {
@@ -64,6 +65,10 @@ agregarGasto = gasto => {
             <div className="one-half column">
               <Listado
                 gastos={this.state.gastos}
+              />
+              <ControlPresupuesto
+                presupuesto={this.state.presupuesto}
+                restante={this.state.restante}
               />
             </div>
           </div>
